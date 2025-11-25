@@ -6,10 +6,19 @@ Su logica va a estar en POO (Porgramación Orientada a Objetos)
 
 El router de este framework se basa en el router de Laravel
 
-
 Estructura del Framework
 
+Este framework facilita el desarrollo de momento de sitios web aunque soporta los métodos POST Y GET, además tambien tiene las funcionalidades de PUT y DELETE.
+
+Posee un Router solido para poder crear rutas sin problemas y poder tener un mejor SEO dentro de los buscadores, tambien un autoload.php para poder cargar las clases de manera automatica y no agregar documentos con require o require_once.
+
+Muestra vistas desde los controladores y además puedes pasar variables como parametros de las vistas.
+
 app
+|
+|_config
+|   |_Config.php
+|   |_Database.php
 |
 |_controllers
 |   |_Controller.php
@@ -32,5 +41,6 @@ app
 |
 |routes
 |    |_web.php
+|
 |
 |autoload.php

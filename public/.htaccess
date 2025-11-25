@@ -1,13 +1,8 @@
-
 Options -MultiViews
 
-# Activar el modo reescritura
 RewriteEngine On
 
-# Bloquear acceso a estas ubicaciones de la aplicacion
-RewriteRule ^(app|core|config|models|controllers|views) - [F,L]
-
-# Redirige al usuario a la vista que es el punto de entrada de la aplicación
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+RewriteRule ^ index.php [QSA,L]

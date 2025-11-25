@@ -4,25 +4,23 @@ namespace App\Controllers;
 
 class Controller
 {
-     public function view($route, $data = [])
+    public function view($route, $data = [])
     {
-
         extract($data);
 
         $route = str_replace('.', '/', $route);
-    
-        if(file_exists("../app/resource/views/{$route}.php"))
-            {
 
-                ob_start();
-                include "../app/resource/views/{$route}.php";
-                $content = ob_get_clean();
+        // Ruta absoluta REAL a app/resource/views/
+        $basePath = dirname(__DIR__) . "/resource/views/{$route}.php";
 
-                return $content;
-
-            }else
-            {
-                return 'El archivo no existe';
-            }
+        if (file_exists($basePath)) 
+        {
+            ob_start();
+            include $basePath;
+            return ob_get_clean();
+        } else 
+        {
+            return "La vista '{$route}' no existe en: {$basePath}";
+        }
     }
 }
