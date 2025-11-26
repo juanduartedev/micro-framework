@@ -1,18 +1,16 @@
 <?php
 
-spl_autoload_register(function($clase) 
+spl_autoload_register(function ($class) 
 {
-    // Ruta absoluta al raíz del proyecto
-    $base = __DIR__;
+    $classPath = str_replace('\\', '/', $class);
 
-    // Convertir namespace → ruta
-    $ruta = $base . '/' . str_replace('\\', '/', $clase) . '.php';
+    $file = __DIR__ . '/' . $classPath . '.php';
 
-    if (file_exists($ruta)) 
+    if (file_exists($file)) 
     {
-        require_once $ruta;
+        require_once $file;
     } else 
     {
-        die("ERROR: No se pudo cargar la clase $clase desde $ruta");
+        echo "ERROR: No se pudo cargar la clase $class desde $file";
     }
 });
